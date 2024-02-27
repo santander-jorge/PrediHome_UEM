@@ -1,0 +1,41 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #000000;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    color: #ff5733; /* Cambiar a tu color deseado */
+    font-style: italic;
+    text-align: left;
+}
+
+/* Cambiar el color del texto */
+p {
+    color: #000000; /* Cambiar a tu color deseado */
+    font-size: 25px;
+    font-style: italic;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+header {
+    background-color: #210a93; /* Cambiar a tu color deseado */
+    font-size: 25;
+    color: #ff5733;
+    padding: 10px 20px;
+    border-radius: 8px 8px 0 0;
+}
+
+.image {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
