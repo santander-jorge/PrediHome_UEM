@@ -1,3 +1,18 @@
+
+###########################################################################
+###########################################################################
+#########
+######### PREDIHOME
+######### URL: https://github.com/santander-jorge/PrediHome_UEM
+#########
+######### Desarrollado por: 
+#########                      Raúl Martín González
+#########                      Jorge Santander Trigo
+#########                      Aarón William Chacón Morales
+#########                      Ricardo Sebastián Quispe Naola
+###########################################################################
+###########################################################################
+
 from sys import stderr
 import pickle
 import numpy as np
@@ -23,9 +38,12 @@ import base64
 
 import replicate
 
-############################ IMPORTANTE: Necesario activar el entorno virtual (venv/Scripts/activate)
+############################ IMPORTANTE: Necesario activar el entorno virtual (venv/Scripts/activate) e instalar las librerías (pip install -r requirements.txt)
 # Para ejecutar la aplicación, abrir la terminal y ejecutar el siguiente comando: streamlit run app.py
 # Alternativa si este comando no funciona: python -m streamlit run app.py
+
+
+
 
 st.set_page_config(page_title="PrediHome", page_icon="static/images/logo.png", layout="wide")  
 
