@@ -70,8 +70,9 @@ ruta_colegios = './data/data_web/colegios-publicos_madrid.csv'
 ruta_museos = './data/data_web/museos_madrid.csv'
 ruta_universidades = './data/data_web/universidades-educacion.csv'
 
-ruta_config_final = './data/data_web/configuracion_final_f.json'
-ruta_config_final2 = './data/data_web/configuracion_final.json'
+
+ruta_config_leer = './data/data_web/config_kepler_final.json'
+ruta_config_guardar = './data/data_web/config_kepler_final.json'
 
 
 selected = option_menu(
@@ -268,7 +269,8 @@ def Inmuebles():
             #st.plotly_chart(fig, use_container_width=True, theme=theme_plotly)
 
             
-            fig = px.box(df_selection, y='Precio', x='Distrito', title='Distribución del precio por distrito', color='Distrito')
+            fig = px.box(df_selection, x='Precio', y='Distrito', title='<b>Distribución del precio por distrito</b>', color='Distrito', orientation='h')
+
             st.plotly_chart(fig, use_container_width=True, theme=theme_plotly)
     except:
             st.title('Empiece escogiendo alquiler o venta')
@@ -587,8 +589,10 @@ def vendepisoML():
 def abrir_mapa():
     df_alquiler = pd.read_csv(ruta_alquileres_coordenadas, sep=';', header=0)
     df_venta = pd.read_csv(ruta_ventas_coordenadas, sep = ';', header=0)
+
     df_distritos = gpd.read_file(ruta_distritos_geo)
     df_municipios = gpd.read_file(ruta_municipios_geo)
+
     df_paradas =gpd.read_file(ruta_paradas_metro_geo)
     df_lineas = gpd.read_file(ruta_lineas_metro_geo)
     df_sanidad=pd.read_csv(ruta_sanidad, sep='|', header=0)
@@ -609,7 +613,7 @@ def abrir_mapa():
         }
     }
 
-    with open(ruta_config_final, 'r') as j:
+    with open(ruta_config_leer, 'r') as j:
         configuracion = json.load(j)
     type(configuracion)
 
@@ -631,11 +635,18 @@ def abrir_mapa():
     mapa.add_data(data=df_museos, name='MUSEOS')
     mapa.add_data(data=df_universidades, name='CENTROS DE ENSENANZA SUPERIOR')
 
-    with open(ruta_config_final2, 'w') as file:
-         json.dump(mapa.config, file, indent=4, sort_keys=True)
+
 
     st.markdown("<h1 style='text-align: center; color: black;'>Mapa de Madrid con los datos de viviendas, transporte, educación, sanidad, cultura y deporte</div>", unsafe_allow_html=True)
     keplergl_static(mapa, height=600, width=1400)
+
+    if st.button('Guardar configuración'):
+        with open(ruta_config_guardar, 'w') as file:
+            json.dump(mapa.config, file, indent=4, sort_keys=True)
+
+        st.warning('Configuración guardada')
+
+
     return config
 
 def chatbot():
