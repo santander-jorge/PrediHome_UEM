@@ -452,26 +452,36 @@ def alquilapisoML():
         
     # Button to apply the function
     if st.button('Calcular precio'):
+
+        st.balloons()
+        
         predecimos = crear_input()
         precio = format(round(float(predecimos), 2), ',')
 
+
         st.markdown(
-        f"""
-        <style>
-            .blue-text {{
-                color: blue;
-                text-align: center;
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                height: 10vh;
-                margin: auto;
-            }}
-        </style>
-        <h1 class="blue-text">Estimamos el precio de alquiler de tu vivienda en: {precio} €</h1>
-        """,
-        unsafe_allow_html=True
-    )
+            f"""
+            <style>
+                .blue-text {{
+                    color: #0056b3; /* Color azul más oscuro */
+                    font-size: 24px; /* Tamaño de fuente más grande */
+                    font-family: Arial, sans-serif; /* Tipo de fuente */
+                    text-align: center;
+                    padding: 20px; /* Añadir espacio alrededor del texto */
+                    border-radius: 10px; /* Bordes redondeados */
+                    background-color: #e6f2ff; /* Fondo azul claro */
+                    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra suave */
+                    width: 60%; /* Ancho del contenedor */
+                    margin: auto; /* Centrar horizontalmente */
+                }}
+            </style>
+            <div class="blue-text">Estimamos el precio de alquiler de tu vivienda en: {precio} €</div>
+            """,
+            unsafe_allow_html=True
+        )
+
+        col1, col2, col3 = st.columns(3)
+        col2.metric("Precio", f'{precio} €', format(round(float(predecimos)-df_rangos['Precio'].mean(), 2), ',')+' € de diferencia con la media de pisos analizados (ML)')
     
     return crear_input()
 
@@ -560,27 +570,38 @@ def vendepisoML():
 
     # Button to apply the function
     if st.button('Calcular precio'):
+
+        
+        st.balloons()
+
+
         predecimos = crear_input()
         precio = format(round(float(predecimos), 2), ',')
 
         
         st.markdown(
-        f"""
-        <style>
-            .blue-text {{
-                color: blue;
-                text-align: center;
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                height: 10vh;
-                margin: auto;
-            }}
-        </style>
-        <h1 class="blue-text">Estimamos el precio de venta de tu vivienda en: {precio} €</h1>
-        """,
-        unsafe_allow_html=True
-    )
+            f"""
+            <style>
+                .blue-text {{
+                    color: #0056b3; /* Color azul más oscuro */
+                    font-size: 24px; /* Tamaño de fuente más grande */
+                    font-family: Arial, sans-serif; /* Tipo de fuente */
+                    text-align: center;
+                    padding: 20px; /* Añadir espacio alrededor del texto */
+                    border-radius: 10px; /* Bordes redondeados */
+                    background-color: #e6f2ff; /* Fondo azul claro */
+                    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra suave */
+                    width: 60%; /* Ancho del contenedor */
+                    margin: auto; /* Centrar horizontalmente */
+                }}
+            </style>
+            <div class="blue-text">Estimamos el precio de venta de tu vivienda en: {precio} €</div>
+            """,
+            unsafe_allow_html=True
+        )
+        
+        col1, col2, col3 = st.columns(3)
+        col2.metric("Precio", f'{precio} €', format(round(float(predecimos)-df_rangos['Precio'].mean(), 2), ',')+' € de diferencia con la media de pisos analizados (ML)')
 
     return crear_input()
 
@@ -603,14 +624,14 @@ def abrir_mapa():
     df_universidades = pd.read_csv(ruta_universidades, sep=';', header=0)
 
     config = {
-    'version': 'v1',
-    'config': {
-        'mapState':{
-            'latitude': 40.4167278,
-            'longitude': -3.7033387,
-            'zoom': 8
+        'version': 'v1',
+        'config': {
+            'mapState':{
+                'latitude': 40.4167278,
+                'longitude': -3.7033387,
+                'zoom': 15 
+                }
             }
-        }
     }
 
     with open(ruta_config_leer, 'r') as j:
@@ -640,11 +661,11 @@ def abrir_mapa():
     st.markdown("<h1 style='text-align: center; color: black;'>Mapa de Madrid con los datos de viviendas, transporte, educación, sanidad, cultura y deporte</div>", unsafe_allow_html=True)
     keplergl_static(mapa, height=600, width=1400)
 
-    if st.button('Guardar configuración'):
-        with open(ruta_config_guardar, 'w') as file:
-            json.dump(mapa.config, file, indent=4, sort_keys=True)
+    #if st.button('Guardar configuración'):
+    #    with open(ruta_config_guardar, 'w') as file:
+    #        json.dump(mapa.config, file, indent=4, sort_keys=True)
 
-        st.warning('Configuración guardada')
+    #    st.warning('Configuración guardada')
 
 
     return config
