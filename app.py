@@ -453,10 +453,16 @@ def alquilapisoML():
     # Button to apply the function
     if st.button('Calcular precio'):
 
-        st.balloons()
         
         predecimos = crear_input()
         precio = format(round(float(predecimos), 2), ',')
+
+        mediapisos = df_rangos['Precio'].mean()
+
+        if predecimos < mediapisos:
+            st.balloons()
+        else:
+            st.snow()
 
 
         st.markdown(
@@ -481,7 +487,7 @@ def alquilapisoML():
         )
 
         col1, col2, col3 = st.columns(3)
-        col2.metric("Precio", f'{precio} €', format(round(float(predecimos)-df_rangos['Precio'].mean(), 2), ',')+' € de diferencia con la media de pisos analizados (ML)')
+        col2.metric("Precio", f'{precio} €', format(round(float(predecimos)-mediapisos, 2), ',')+' € de diferencia con la media de pisos analizados (ML)')
     
     return crear_input()
 
@@ -571,13 +577,15 @@ def vendepisoML():
     # Button to apply the function
     if st.button('Calcular precio'):
 
-        
-        st.balloons()
-
-
         predecimos = crear_input()
         precio = format(round(float(predecimos), 2), ',')
 
+        mediapisos = df_rangos['Precio'].mean()
+
+        if predecimos < mediapisos:
+            st.balloons()
+        else:
+            st.snow()
         
         st.markdown(
             f"""
@@ -601,7 +609,7 @@ def vendepisoML():
         )
         
         col1, col2, col3 = st.columns(3)
-        col2.metric("Precio", f'{precio} €', format(round(float(predecimos)-df_rangos['Precio'].mean(), 2), ',')+' € de diferencia con la media de pisos analizados (ML)')
+        col2.metric("Precio", f'{precio} €', format(round(float(predecimos)-mediapisos, 2), ',')+' € de diferencia con la media de pisos analizados (ML)')
 
     return crear_input()
 
