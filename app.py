@@ -505,7 +505,7 @@ def alquilapisoML():
         )
 
         col1, col2, col3 = st.columns(3)
-        col2.metric("Precio", f'{precio} €', format(round(float(predecimos)-mediapisos, 2), ',')+' € de diferencia con la media de pisos analizados (ML)')
+        col2.metric("Precio", f'{precio} €', format(round(float(predecimos)-mediapisos, 2), ',')+' € de diferencia con la media de pisos analizados (ML)', delta_color='inverse')
     
     return crear_input()
 
@@ -627,7 +627,7 @@ def vendepisoML():
         )
         
         col1, col2, col3 = st.columns(3)
-        col2.metric("Precio", f'{precio} €', format(round(float(predecimos)-mediapisos, 2), ',')+' € de diferencia con la media de pisos analizados (ML)')
+        col2.metric("Precio", f'{precio} €', format(round(float(predecimos)-mediapisos, 2), ',')+' € de diferencia con la media de pisos analizados (ML)', delta_color='inverse')
 
     return crear_input()
 
