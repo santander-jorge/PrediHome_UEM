@@ -840,7 +840,7 @@ a:hover,  a:active {
 .footer {
     position: fixed;
     left: 0;
-    height: 7%;
+    height: 12%;
     bottom: 0;
     width: 100%;
     background-color: #243946;
@@ -849,9 +849,9 @@ a:hover,  a:active {
 }
 
 .footer img {
-    width: 50px; /* ajusta el tamaño según sea necesario */
+    width: 30px; /* ajusta el tamaño según sea necesario */
     height: auto;
-    margin: 10px; /* ajusta el margen según sea necesario */
+    margin: 20px; /* ajusta el margen según sea necesario */
 }
 
 .footer p {
@@ -866,22 +866,21 @@ a:hover,  a:active {
     <div class="social-icons">
         <p>
             <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/95/Instagram_logo_2022.svg/1200px-Instagram_logo_2022.svg.png" alt="Instagram" title="Instagram">
-            Síguenos en <a href="url_de_tu_perfil_de_instagram" target="_blank">Instagram</a>
+            Síguenos en <a href="https://www.instagram.com/" target="_blank">Instagram</a>
         </p>
     </div>
     <div class="social-icons">
         <p>
             <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b8/2021_Facebook_icon.svg/220px-2021_Facebook_icon.svg.png" alt="Facebook" title="Facebook">
-            Síguenos en <a href="url_de_tu_perfil_de_facebook" target="_blank">Facebook</a>
+            Síguenos en <a href="https://www.facebook.com/" target="_blank">Facebook</a>
         </p>
     </div>
     <div class="social-icons">
         <p>
             <img src="https://store-images.s-microsoft.com/image/apps.31120.9007199266245564.44dc7699-748d-4c34-ba5e-d04eb48f7960.bc4172bd-63f0-455a-9acd-5457f44e4473" alt="LinkedIn" title="LinkedIn">
-            Síguenos en <a href="url_de_tu_perfil_de_linkedin" target="_blank">LinkedIn</a>
+            Síguenos en <a href="https://www.linkedin.com/" target="_blank">LinkedIn</a>
         </p>
     </div>
-    <p>Creador 🤖 por <a href="www.linkedin.com/in/aaron-chacon" target="_blank">Los de atras</a></p>
 </div>
 """
 
